@@ -45,8 +45,7 @@ const Login = () => {
                     
                     <Link to={'/forgetcheck'} className='ps-2'>Forget Password</Link>
 
-
-                    <button className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Login</button>
+                    <button type='button' className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Login</button>
                 </form>
             </div>
         </div>

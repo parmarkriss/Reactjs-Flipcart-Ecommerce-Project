@@ -15,7 +15,7 @@ import Contact from './Users/Contact';
 import Forgot from './Users/Forgot';
 import Otp from './Users/Otp';
 import Newpassword from './Users/Newpassword';
-// import SignIn from './Users/Sing';
+
 
 
 import AdminLayout from './Admin/components/AdminLayout';
@@ -27,6 +27,7 @@ import { User } from './Admin/Pages/User';
 import UserDetails from './Admin/Pages/UserDetails';
 import AdminCategory from './Admin/Pages/AdminCategory';
 import Slider from './Admin/Pages/Slider';
+import Profile from './Users/Profile';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Route path='/product' element={<Product/>}></Route>
             <Route path='/productDetails/:productId' element={<ProductDetails/>}></Route>
             <Route path='/cart' element={<Cart/>}></Route>
+            <Route path='/profile' element={<Profile/>}></Route>
             <Route path='/register' element={<Register/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/contact' element={<Contact/>}></Route>

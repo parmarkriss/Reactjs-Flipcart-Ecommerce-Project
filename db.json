@@ -3,8 +3,8 @@
     {
       "name": "krishna",
       "email": "krishna@gmail.com",
-      "password": "45678",
-      "confirmpassword": "45678",
+      "password": "123",
+      "confirmpassword": "123",
       "gender": "female",
       "role": "user",
       "id": 1
@@ -48,8 +48,8 @@
     {
       "name": "krish",
       "email": "krish@gmail.com",
-      "password": "12345",
-      "confirmpassword": "12345",
+      "password": "12",
+      "confirmpassword": "12",
       "gender": "male",
       "role": "user",
       "id": 7
@@ -120,9 +120,9 @@
       "qty": 1,
       "image": "https://rukminim2.flixcart.com/image/612/612/jwfa5jk0/pendrive/pendrive/z/f/p/sandisk-sdcz50-128g-i35-original-imafh3xkevktvq4w.jpeg?q=70",
       "category": "eletronics",
-      "status": "instock",
+      "status": "outstock",
       "desc": "",
-      "marketstatus": "best",
+      "marketstatus": "trending",
       "id": 1
     },
     {
@@ -330,19 +330,39 @@
       "qty": 1,
       "image": "https://rukminim2.flixcart.com/image/612/612/jwfa5jk0/pendrive/pendrive/z/f/p/sandisk-sdcz50-128g-i35-original-imafh3xkevktvq4w.jpeg?q=70",
       "category": "eletronics",
-      "userId": 1,
-      "productId": 1,
-      "id": 3
-    },
-    {
-      "name": "Pendrive",
-      "price": 300,
-      "qty": 1,
-      "image": "https://rukminim2.flixcart.com/image/612/612/jwfa5jk0/pendrive/pendrive/z/f/p/sandisk-sdcz50-128g-i35-original-imafh3xkevktvq4w.jpeg?q=70",
-      "category": "eletronics",
       "userId": 2,
       "productId": 1,
       "id": 4
+    },
+    {
+      "name": "Monitor",
+      "price": 6399,
+      "qty": "1",
+      "image": "https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/2/f/c/-original-imagsemasfdpekgm.jpeg?q=70",
+      "category": "eletronics",
+      "userId": 7,
+      "productId": 4,
+      "id": 5
+    },
+    {
+      "name": "Monitor",
+      "price": 6399,
+      "qty": "1",
+      "image": "https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/2/f/c/-original-imagsemasfdpekgm.jpeg?q=70",
+      "category": "eletronics",
+      "userId": 1,
+      "productId": 4,
+      "id": 6
+    },
+    {
+      "name": "Printer",
+      "price": 5000,
+      "qty": 1,
+      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/printer/r/6/t/-original-imagnuwezn8c5nmg.jpeg?q=70",
+      "category": "eletronics",
+      "userId": 1,
+      "productId": 3,
+      "id": 7
     }
   ],
   "contact": [

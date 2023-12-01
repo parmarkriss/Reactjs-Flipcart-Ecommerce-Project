@@ -10,26 +10,31 @@ const Newpassword = () => {
 
     const [password,setPassword] = useState("");
     const [confirmpassword,setConfirmPassword] = useState("");
+
     const handleSubmit = () => {
-        let emaildata =  JSON.parse(localStorage.getItem('checkUserLogin'))
-        if(password === confirmpassword){
-            axios.patch(`http://localhost:8000/users/${emaildata.id}`,{
-                password : password,
-                confirmpassword : confirmpassword
-            }).then((res)=>{
-                localStorage.setItem('checkUserLogin',JSON.stringify(res.data));
-                toast.success("Successfully Password Changed")
-                navigate(`/login`);
-            }).catch((err)=>{
-                toast.error("Password update failed");
-                return false;
-            }) 
-        }else{
-            toast.error("Passwords do not match");
-            return false;
-        }
+
+       let emaildata = JSON.parse(localStorage.getItem('checkUserLogin'))
+    
+    if (password === confirmpassword) {
+        axios.patch(`http://localhost:8000/users/${emaildata.id}`, {
+            password: password,
+            confirmpassword: confirmpassword
+        })
+        .then((res) => {
+            localStorage.setItem('checkUserLogin', JSON.stringify(res.data));
+            toast.success("Successfully Password Changed")
+            navigate(`/login`);
+        })
+        .catch((err) => {
+            toast.error("Password update failed");
+        });
+    } else {
+        toast.error("Passwords do not match");
+    }
 
     }
+
+  
 
     return (
         <>
@@ -42,9 +47,9 @@ const Newpassword = () => {
                         <input type="text" name="password" id="name" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} value={password} />
 
                         <label id="icon" htmlFor="name"><i className="icon-shield" /></label>
-                        <input type="text" name="password" id="name" placeholder="Password" required onChange={(e) => setConfirmPassword(e.target.value)} value={confirmpassword}/>
+                        <input type="text" name="password" id="name" placeholder="Confirm Password" required onChange={(e) => setConfirmPassword(e.target.value)} value={confirmpassword}/>
 
-                        <button className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Otp send</button>
+                        <button type="button" className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Submit</button>
                     </form>
                 </div>
             </div>

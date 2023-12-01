@@ -9,7 +9,6 @@ const ProductDetails = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
 
-
     const getSingleRecord = async () => {
         try {
             let single = await axios.get(`http://localhost:8000/products/${productId}`);
@@ -34,7 +33,6 @@ const ProductDetails = () => {
         } else {
             try {
                 const response = await axios.get(`http://localhost:8000/carts?productId=${productId}&userId=${checkUserLogin().id}`);
-        
                 if (response.data.length === 0) {
                     const cartItem = {
                         name: product.name,
@@ -74,7 +72,6 @@ const ProductDetails = () => {
     return (
 
         <div className='product p-3'>
-
            
             <div className="container">
                 <div className="row ">

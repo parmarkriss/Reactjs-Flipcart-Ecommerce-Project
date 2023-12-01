@@ -83,44 +83,44 @@ const Slider = () => {
         <div>
             <h2>Slider</h2>
             <div className="container-category">
-  <table className="custom-table-category">
-    <tbody>
-      <tr>
-        <td className="label-cell">Image URL</td>
-        <td>
-          <input
-            type="text"
-            value={img}
-            onChange={(e) => setImg(e.target.value)}
-            name="img"
-            placeholder="Enter the Image URL"
-            className="input-field"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          {edit ? (
-            <input
-              type="button"
-              value="Edit"
-              onClick={() => handleSubmit()}
-              className="action-button edit-button"
-            />
-          ) : (
-            <input
-              type="button"
-              value="Submit"
-              onClick={() => handleSubmit()}
-              className="action-button submit-button"
-            />
-          )}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+                <table className="custom-table-category">
+                    <tbody>
+                        <tr>
+                            <td className="label-cell">Image URL</td>
+                            <td>
+                                <input
+                                    type="text"
+                                    value={img}
+                                    onChange={(e) => setImg(e.target.value)}
+                                    name="img"
+                                    placeholder="Enter the Image URL"
+                                    className="input-field"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                {edit ? (
+                                    <input
+                                        type="button"
+                                        value="Edit"
+                                        onClick={() => handleSubmit()}
+                                        className="action-button edit-button"
+                                    />
+                                ) : (
+                                    <input
+                                        type="button"
+                                        value="Submit"
+                                        onClick={() => handleSubmit()}
+                                        className="action-button submit-button"
+                                    />
+                                )}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <br></br>
 

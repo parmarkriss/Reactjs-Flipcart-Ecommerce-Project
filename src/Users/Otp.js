@@ -4,45 +4,42 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Otp = () => {
-
     const navigate = useNavigate()
     const [otps, setOtp] = useState("");
-
+    let isOtpSent = (false); 
+    
     const Otp = () => {
+      if (!isOtpSent) {
+        isOtpSent = true; 
         let userdata = JSON.parse(localStorage.getItem('checkUserLogin'));
-        let otp = Math.floor(Math.random() * 1000);
+        let otp = Math.floor(Math.random() * 10000);
         let obj = {
-            otp: otp,
-            email: userdata.email
+          otp: otp,
+          email: userdata.email
         };
         localStorage.setItem("userotp", JSON.stringify(obj));
         toast.success("Your OTP: " + otp, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
+          position: "top-center",
+          autoClose: 5000,
         });
-    }
+      }
+    };
 
     const handleSubmit = () => {
         let otp = JSON.parse(localStorage.getItem('userotp'))
-
         if (otp.otp === parseInt(otps)) {
             toast.success("Successfully Otp ");
-            navigate(`/newpasswords`)
+            navigate('/newpasswords')
             return false
         } else {
             toast.error("OTP is not valid");
             return false
-        }
+        }                         
     }
+    
     useEffect(() => {
-        Otp()
-    }, [])
+        Otp();
+    }, []);
 
     return (
         <>
@@ -56,7 +53,7 @@ const Otp = () => {
 
 
 
-                        <button className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Otp send</button>
+                        <button type="button" className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Otp send</button>
                     </form>
                 </div>
             </div>

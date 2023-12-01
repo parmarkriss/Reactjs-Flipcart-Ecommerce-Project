@@ -22,6 +22,8 @@ const Forgot = () => {
         }
     }
 
+    
+
     return (
         <>
             <div className='register'>
@@ -33,7 +35,7 @@ const Forgot = () => {
                     <input type="text" name="email" id="name" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} value={email} />
 
                    
-                    <button  className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Forget</button>
+                    <button type="button"  className="btn-1 w-75 mt-3" onClick={() => handleSubmit()}>Forget</button>
                 </form>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Cart = () => { 
     const [cart, setCart] = useState([]);
+    const [totalprice,setTotal] = useState([]);
 
     const handleDelete = (id) => {
         try {
@@ -33,36 +34,54 @@ const Cart = () => {
 
     const Qtychange = (id, qty) => {
         if (qty < 1) {
-            qty = 1; 
+            qty = 1;
         }
-        const UpdatecartItem = cart.map(item => {
+    
+        const updatedCart = cart.map(item => {
             if (item.id === id) {
                 return { ...item, qty: qty };
             }
             return item;
         });
-        setCart(UpdatecartItem);
+    
+        setCart(updatedCart);
+    
+    
+        const total = updatedCart.reduce((acc, item) => acc + item.price * item.qty, 0);
+        setTotal(total);
+    
+        
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
     
         axios.patch(`http://localhost:8000/carts/${id}`, {
             qty: qty,
         }).then((res) => {
-           
+    
         }).catch((err) => {
             console.error(err);
         });
-    }
+    };
     
 
-   
     useEffect(() => {
-        axios.get(`http://localhost:8000/carts?userId=${Userauth().id}`)
-            .then((res) => {
-                setCart(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-                return false;
-            });
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/carts?userId=${Userauth().id}`);
+                const updatedCart = response.data.map(item => {
+                    if (!item.qty || item.qty < 1) {
+                        item.qty = 1;
+                    }
+                    return item;
+                });
+                setCart(updatedCart);
+                const total = updatedCart.reduce((acc, item) => acc + item.price * item.qty, 0);
+                setTotal(total);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+    
+        fetchData();
     }, []);
 
 
@@ -71,7 +90,7 @@ const Cart = () => {
             <ToastContainer />
             <div className='container'>
                 <h2 className='text-center pt-2' style={{ color: 'darkblue', fontWeight: '600' }}>Cart</h2>
-                <div className='row justify-content-between '>
+                <div className='row justify-content-between'>
                     {cart.map((val) => {
                         return (
                             <div className="card mb-4" style={{ maxWidth: 600, height: '385px' }}>
@@ -97,6 +116,10 @@ const Cart = () => {
                             </div>
                         )
                     })}
+                    <div className='total mb-3 p-3'>
+                        <h4 className='text-center'>Total:- {totalprice}</h4>
+                    </div>
+                    
                 </div>
             </div>
         </div>

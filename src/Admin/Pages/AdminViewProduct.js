@@ -10,6 +10,14 @@ const AdminViewProduct = () => {
     const [marketstatus, setMarketStatus] = useState(["trending", "latest", "upcomming", "best"])
     const [selectMarketStatus, setSelectMarketStatus] = useState("");
     const [status, setStatus] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(8);
+
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = product.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
     const changeMarketStatus = (upid, value) => {
@@ -75,9 +83,9 @@ const AdminViewProduct = () => {
 
     return (
         <div>
-            <div className="p-4 col-lg-12 pt-2">
+            <div className="p-4 col-lg-12 pt-2 bg-light">
                 <div style={{ boxShadow: '3px 3px 3px 3px #cccc' }} className="mt-4 p-5">
-                    <h3 className="text-center">View Product</h3>
+                    <h3 className="text-center ">View Product</h3>
 
                     <table className="table table-success table-striped">
                         <thead>
@@ -92,7 +100,7 @@ const AdminViewProduct = () => {
                         </thead>
                         <tbody>
                             {
-                                product.map((val) => {
+                                currentProducts.map((val) => {
                                     return (
                                         <tr>
                                             <td>{val.id}</td>
@@ -126,6 +134,16 @@ const AdminViewProduct = () => {
 
                         </tbody>
                     </table>
+
+                    <ul className="pagination">
+                        {Array.from({ length: Math.ceil(product.length / productsPerPage) }).map((_, index) => (
+                            <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                                <button onClick={() => paginate(index + 1)} className="page-link">
+                                    {index + 1}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
 
 
                 </div>

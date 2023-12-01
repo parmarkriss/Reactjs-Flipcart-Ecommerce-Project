@@ -51,7 +51,8 @@ const Contact = () => {
             <label htmlFor="message" className="form-label">Message</label>
             <textarea className="form-control" id="message" name="message" rows={4} required defaultValue={""} onChange={ (e)=> setMessage(e.target.value)} value={message}/>
           </div>
-          <button type="submit" className="btn btn-primary" onClick={ ()=> handlesumbit()}>Submit</button>
+
+          <button type="button" className="btn btn-primary" onClick={ ()=> handlesumbit()}>Submit</button>
         </form>
       </div>
     </div>

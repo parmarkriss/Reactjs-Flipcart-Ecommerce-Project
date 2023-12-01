@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
     const handleAccordionClick = (e) => {
@@ -15,7 +15,7 @@ const Header = () => {
         localStorage.removeItem('checkUserLogin');
     };
 
-    
+
 
 
     return (
@@ -26,30 +26,38 @@ const Header = () => {
                         <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/flipkart-095e08.svg" style={{ width: '120px' }} alt="Logo" />
                     </NavLink>
                 </div>
-    
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                
-                
                 <div className="col-md-7 class=" collapse="navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav ml-auto ps-5  align-items-center">
+                    <ul className="navbar-nav me-auto ps-5  align-items-center">
                         <li className="nav-item pe-4">
                             <NavLink to='/' className="nav-link">Home</NavLink>
                         </li>
                         <li className="nav-item pe-4">
                             <NavLink to='/product' className="nav-link">Products</NavLink>
                         </li>
-                        <li className="nav-item pe-4">
-                            <NavLink className="nav-link">Products Details</NavLink>
-                        </li>
-                        <li className="nav-item pe-4">
-                            <NavLink to='/cart' className="nav-link">Cart</NavLink>
-                        </li>
+                        {
+                            user && (
+                                  <li className="nav-item pe-4">
+                                    <NavLink to='/cart' className="nav-link">Cart</NavLink>
+                                </li>
+                               
+                            )
+                        }
                         <li className="nav-item pe-4">
                             <NavLink to='/contact' className="nav-link">Contact</NavLink>
                         </li>
+                        {
+                            user && (
+                                <li className="nav-item pe-4">
+                                <NavLink to='/profile' className="nav-link"><i class="bi bi-person-fill pe-1"></i>Profile</NavLink>
+                             </li>
+                            )
+                        }
+                        
                         {
                             !user ?
                                 (
