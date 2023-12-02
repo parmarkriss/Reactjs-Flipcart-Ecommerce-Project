@@ -347,22 +347,12 @@
     {
       "name": "Monitor",
       "price": 6399,
-      "qty": "1",
+      "qty": 1,
       "image": "https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/2/f/c/-original-imagsemasfdpekgm.jpeg?q=70",
       "category": "eletronics",
       "userId": 1,
       "productId": 4,
-      "id": 6
-    },
-    {
-      "name": "Printer",
-      "price": 5000,
-      "qty": 1,
-      "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/printer/r/6/t/-original-imagnuwezn8c5nmg.jpeg?q=70",
-      "category": "eletronics",
-      "userId": 1,
-      "productId": 3,
-      "id": 7
+      "id": 8
     }
   ],
   "contact": [

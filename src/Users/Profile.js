@@ -15,7 +15,7 @@ const Profile = () => {
         let record = JSON.parse(localStorage.getItem('checkUserLogin'));
         let products = await axios.get(`http://localhost:8000/carts?userId=${record.id}`);
         setCart(products.data);
-    
+
         const calculatedSubtotal = products.data.reduce((acc, item) => acc + item.price * item.qty, 0);
         setSubtotal(calculatedSubtotal);
     }
@@ -57,7 +57,7 @@ const Profile = () => {
                                     <td>
                                         <img src={val.image} style={{ width: "140px" }} alt={val.name} />
                                     </td>
-                                    <td><h4 >{subtotal}</h4></td>
+                                    <td><h4>{val.price * val.qty}</h4></td>
                                     <td>
                                         <h5 style={{ width: "100px" }} className='text-center'>{val.qty}</h5>
                                     </td>

@@ -39,7 +39,7 @@ const Forgot = () => {
                 </form>
             </div>
         </div>
-            <ToastContainer />
+        <ToastContainer />
         </>
     )
 }

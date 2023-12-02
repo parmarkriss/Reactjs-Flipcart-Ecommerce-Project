@@ -84,6 +84,11 @@ const Cart = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+        setTotal(total);
+      }, [cart]);
+
 
     return (
         <div className='cart'>

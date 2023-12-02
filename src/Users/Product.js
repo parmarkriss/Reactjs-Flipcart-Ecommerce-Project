@@ -12,7 +12,7 @@ const Product = () => {
 
     //pagination
     const [currentPage, setCurrentPage] = useState(1);
-    const [recordsPerPage] = useState(9);
+    const [recordsPerPage] = useState(6);
 
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
@@ -152,7 +152,6 @@ const Product = () => {
                                     </div>
                                 </div>
                             ))}
-
                     </div>
                 </div>
             </div>
@@ -163,19 +162,15 @@ const Product = () => {
                         <div className="card" style={{ width: '18rem' }}>
                             <ul className="list-group list-group-flush">
                                 <>
-
                                     <li className="list-group-item p-3">
                                         <button class="btn  btn-outline-secondary w-100" onClick={() => handleSort()}>Price High to Low</button>
                                     </li>
                                     <li className="list-group-item p-3">
                                         <button class="btn  btn-outline-secondary w-100" onClick={() => handleLow()}>Price Low To High</button>
                                     </li>
-
                                 </>
-
                             </ul>
                         </div>
-
                     </div>
 
 
